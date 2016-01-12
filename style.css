@@ -2,7 +2,59 @@
   margin: 15px 10px;
 }
 
+#background {
+}
+
+button {
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+button:hover {
+	border: 3px double #616163;
+	font-color: #616163;
+	background-color: #FFBFA0;
+}
+
 .tableWrapper {
   max-height: 400px;
   overflow: auto;
+  border: 3px inset #44FFD2;
+  background-color: #DAF5FF;
 }
+
+body {
+	background: url(img/cheap_diagonal_fabric.png) repeat  0 0;
+}
+
+h1 {
+	color: #616163;
+	font-family: 'Droid Sans';
+	font-size: 300%;
+	text-shadow: 5px 5px 5px #ccc;
+}
+
+h2, h3 {
+	font-family: 'Droid Sans';
+	color: #616163;
+	text-shadow: 2px 2px 2px #ccc;
+	text-align: center;
+}
+
+p {
+	color: #616163;
+	font-family: 'Roboto';
+	font-size: 100%;
+}
+
+h4 {
+	color: #616163;
+	font-family: 'Roboto';
+	text-indent: 20px;
+}
+
+th {
+	color: #616163;
+	font-family: 'Roboto';
+}
+

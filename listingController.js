@@ -9,14 +9,15 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
       $scope.listings.push({
         code: $scope.newCode,
         name: $scope.newName,
-        coordinates: $scope.newCoordinates,
+        coordinates: { latitude: $scope.newCoordinateX, longitude: $scope.newCoordinateY },
         address: $scope.newAddress
       });
 
       //Resets the form 
       $scope.newCode = '';
       $scope.newName = '';
-      $scope.newCoordinates = '';
+      $scope.newCoordinateX = '';
+      $scope.newCoordinateY = '';
       $scope.newAddress = '';
     };
 

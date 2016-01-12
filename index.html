@@ -3,19 +3,21 @@
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
   </head>
   <body ng-app="directoryApp">
-    <div class="container">
+    <div class="container" id="background">
       <div class="row">
         <h1>UF Directory App</h1>
       </div>
       <div class="row" ng-controller="ListingsController">
-        <div class="col-md-6">
+        <div class="col-md-4">
           <div class="input-group" id="searchBar">
             <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
 
             <!--Add ng-model keyword to search bar and also update filter on the ng-repeat table-->
-            
+
             <input type="text" ng-model="search" class="form-control" placeholder="Search">
           </div>
           <div class="tableWrapper">
@@ -23,6 +25,7 @@
               <tr>
                 <th>Code</th>
                 <th>Building Name</th>
+                <th></th>
                 <th></th>
               </tr>
 
@@ -38,27 +41,36 @@
             </table>
           </div>
 
-            <!--Use a form to add a new listing with code, name, coordinates, and address attributes (it will reset after the Add button is pressed). -->
+          <br></br>
 
+            <!--Use a form to add a new listing with code, name, coordinates, and address attributes (it will reset after the Add button is pressed). -->
+          <div class="tableWrapper">
             <form name="newListing">
-              <h2>Add New Listing</h2>
-              <p>Code: <input type="code" name="code" ng-model="newCode"></p>
-              <p>Name: <input type="name" name="name" ng-model="newName"></p>
-              <p>Coordinates: <input type="coordinates" name="coordinates" ng-model="newCoordinates"></p>
-              <p>Address: <input type="address" name="address" ng-model="newAddress"></p>
-              <button ng-click="addListing()">Add</button>
+              <h3>Add New Listing</h3>
+              <div class="col-md-6">
+                <p>Code: <input type="code" name="code" ng-model="newCode"></p>
+                <p>Name: <input type="name" name="name" ng-model="newName"></p>
+                <p>Coordinates:</p>
+                <p>Latitude: <input type="coordinates" name="coordinates" ng-model="newCoordinateX">
+                Longitude: <input type="coordinates" name="coordinates" ng-model="newCoordinateY"></p>
+                <p>Address: <input type="address" name="address" ng-model="newAddress"></p>
+                <button ng-click="addListing()">Add</button>
+              </div>
             </form>
+          </div>
+
+          <br></br>
             
         </div>
-        <div class="col-md-6">
-          <div class="jumbotron">
+        <div class="col-md-8">
+          <div class="tableWrapper">
             <h2>Detailed Information</h2>
             <!--When the showDetails() method is called from the button next to the entry, the detailedInfo will be updated in the controller; this is just shown in this column area. -->
 
-             <p> Code: {{ detailedInfo.code }}</p>
-             <p> Name: {{ detailedInfo.name }}</p>
-             <p> Coordinates: (Latitude: {{ detailedInfo.coordinates.latitude }}, Longitude: {{detailedInfo.coordinates.latitude }})</p>
-             <p> Address: {{ detailedInfo.address }}</p>
+             <h4> Code: {{ detailedInfo.code }}</h4>
+             <h4> Name: {{ detailedInfo.name }}</h4>
+             <h4> Coordinates: (Latitude: {{ detailedInfo.coordinates.latitude }}, Longitude: {{detailedInfo.coordinates.longitude }})</h4>
+             <h4> Address: {{ detailedInfo.address }}</h4>
           </div>
         </div>
       </div>
