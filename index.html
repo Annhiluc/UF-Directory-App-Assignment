@@ -26,53 +26,54 @@
                 <th>Code</th>
                 <th>Building Name</th>
                 <th></th>
-                <th></th>
               </tr>
 
               <!--Use ng-repeat to display all entries (code and name) in listings and also use filter for the search bar at the top. X button is used to delete a listing and the Show Details button is used to show details to the side of the screen. -->
 
-              <tr ng-repeat="entries in listings | filter: search"> 
-                <th>{{ entries.code }}</th>
-                <th>{{ entries.name }}</th>
-                <th><button ng-click="deleteListing($index)">x</button></th>
-                <th><button ng-click="showDetails($index)">Show Details</button></th>
+              <tr ng-repeat="entries in listings | filter: search" ng-click="showDetails($index)">
+                <td>{{ entries.code }}</td>
+                <td>{{ entries.name }}</td>
+                <td><button ng-click="deleteListing($index)">x</button></td>
               </tr>
               
             </table>
           </div>
 
           <br></br>
-
-            <!--Use a form to add a new listing with code, name, coordinates, and address attributes (it will reset after the Add button is pressed). -->
-          <div class="tableWrapper">
-            <form name="newListing">
-              <h3>Add New Listing</h3>
-              <div class="col-md-6">
-                <p>Code: <input type="code" name="code" ng-model="newCode"></p>
-                <p>Name: <input type="name" name="name" ng-model="newName"></p>
-                <p>Coordinates:</p>
-                <p>Latitude: <input type="coordinates" name="coordinates" ng-model="newCoordinateX">
-                Longitude: <input type="coordinates" name="coordinates" ng-model="newCoordinateY"></p>
-                <p>Address: <input type="address" name="address" ng-model="newAddress"></p>
-                <button ng-click="addListing()">Add</button>
-              </div>
-            </form>
-          </div>
-
-          <br></br>
-            
         </div>
+
+
         <div class="col-md-8">
           <div class="tableWrapper">
             <h2>Detailed Information</h2>
             <!--When the showDetails() method is called from the button next to the entry, the detailedInfo will be updated in the controller; this is just shown in this column area. -->
+              <div style="text-align:center">
+                <h4> {{ detailedInfo.code }}</h4>
+                <h4> {{ detailedInfo.name }}</h4>
+                <h4> {{ detailedInfo.coordinates.latitude }}  {{detailedInfo.coordinates.longitude }}</h4>
+                <h4> {{ detailedInfo.address }}</h4>
+              </div>
+          </div>
+          <br></br>
+        
 
-             <h4> Code: {{ detailedInfo.code }}</h4>
-             <h4> Name: {{ detailedInfo.name }}</h4>
-             <h4> Coordinates: (Latitude: {{ detailedInfo.coordinates.latitude }}, Longitude: {{detailedInfo.coordinates.longitude }})</h4>
-             <h4> Address: {{ detailedInfo.address }}</h4>
+        <!--Use a form to add a new listing with code, name, coordinates, and address attributes (it will reset after the Add button is pressed). -->
+          <div class="tableWrapper">
+            <form name="newListing">
+              <h3>Add New Listing</h3>
+              <div class="col-md-8">
+                <p><input type="code" name="code" placeholder="Code" size="5" ng-model="newCode"></p>
+                <p><input type="name" name="name" placeholder="Name" ng-model="newName"></p>
+                <p></p>
+                <p><input type="coordinates" name="coordinates" placeholder="Latitude" size="7" ng-model="newCoordinateX">
+                <input type="coordinates" name="coordinates" placeholder="Longitude" size="7" ng-model="newCoordinateY"></p>
+                <p><input type="address" name="address" placeholder="Address" size="35" ng-model="newAddress"></p>
+                <button ng-click="addListing()">Add</button>
+              </div>
+            </form>
           </div>
         </div>
+
       </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
