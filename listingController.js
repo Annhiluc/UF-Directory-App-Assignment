@@ -48,7 +48,7 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
             title: $scope.listings[index].code + "\n" + $scope.listings[index].name,
             description: $scope.listings[index].address,
             'marker-size': 'large',
-            'marker-color': '#7E3661',
+            'marker-color': '#FC575E',
             'marker-symbol': 'college'
           }
         }).addTo(map);
